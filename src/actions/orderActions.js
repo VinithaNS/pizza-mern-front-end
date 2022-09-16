@@ -36,7 +36,7 @@ export const getUserOrders = () => async (dispatch, getState) => {
 
     try {
 
-        const res = await axios.post('/api/orders/getuserorders', {userid : currentUser._id})
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/orders/getuserorders`, {userid : currentUser._id})
         dispatch({type: "GET_USER_ORDERS_SUCCESS", payload : res.data});
 
     } catch(err) {
