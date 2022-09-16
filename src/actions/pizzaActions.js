@@ -24,7 +24,7 @@ export const filterPizzas = (search, category) => async dispatch => {
 
     try {
 
-        const res = await axios.get('/api/pizzas/getpizzas')
+        const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/pizzas/getpizzas`)
         filteredPizzas = res.data.filter(pizza => pizza.name.toLowerCase().includes(search));
 
         if(category !== 'all') {
