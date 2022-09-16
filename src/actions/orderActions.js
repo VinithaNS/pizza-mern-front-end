@@ -14,7 +14,7 @@ export const placeOrder = () => async (dispatch, getState) => {
 
     try {
 
-        const res = await axios.post('/api/orders/placeorders', {totalPrice, currentUser, cartItems, shippingAddress});
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/orders/placeorders`, {totalPrice, currentUser, cartItems, shippingAddress});
         dispatch({type: "PLACE_ORDER_SUCCESS" });
         console.log(res);
         localStorage.removeItem('cartItems');
