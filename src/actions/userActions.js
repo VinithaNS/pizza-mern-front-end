@@ -6,7 +6,7 @@ export const register = (user) => async dispatch => {
 
     try {
 
-        const res = await axios.post('/api/users/register', user)
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/users/register`, user)
         console.log(res);
         dispatch({type: "REGISTER_USER_SUCCESS"});
 
@@ -24,7 +24,7 @@ export const login = (user) => async dispatch => {
 
     try {
 
-        const res = await axios.post('/api/users/login', user)
+        const res = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/users/login`, user)
         console.log(res);
         dispatch({type: "LOGIN_USER_SUCCESS", payload: res.data});
         localStorage.setItem('currentUser', JSON.stringify(res.data));
